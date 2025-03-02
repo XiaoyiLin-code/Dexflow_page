@@ -127,13 +127,18 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
+<!--       <video poster="" id="tree" autoplay controls muted loop height="100%">
         <!-- Your video here -->
         <source src="static/videos/banner_video.mp4"
         type="video/mp4">
-      </video>
+      </video> -->
+      <img src="static/images/framework_new.png" alt="MY ALT TEXT"/>
       <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
+      Our proposed grasp retargeting framework comprises three main modules. First, the object segmented from the multi-frame MANO and object
+interaction sequence is scaled, and the human hand pose is retargeted to a robotic hand pose. Next, a double-threshold detection system extracts initial
+contact information between the retargeted hand and the object, which is then smoothed over adjacent frames and updated only if certain conditions are
+met. Finally, each finger is optimized in sequence, starting from the thumb and moving toward the pinky. At each stage of optimization, one finger is
+refined, and fingers without contact information, such as the index finger, are skipped, ensuring an efficient and accurate optimization procedure. 
       </h2>
     </div>
   </div>
@@ -148,7 +153,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+          Despite advances in hand-object interaction modeling, generating realistic dexterous manipulation data for robotic hands remains a challenge. Retargeting methods often suffer from low accuracy and fail to account for hand-object interactions, leading to artifacts like interpenetration. Generative methods, lacking human hand priors, produce limited and unnatural poses. We propose a data transformation pipeline that combines human hand and object data from multiple sources for high-precision retargeting. Our approach uses a differential loss constraint to ensure temporal consistency and generates contact maps to refine hand-object interactions. Experiments show our method significantly improves pose accuracy, naturalness, and diversity, providing a robust solution for hand-object interaction modeling.
           </p>
         </div>
       </div>
