@@ -123,18 +123,30 @@
 </section>
 
 
-<!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <img src="static/images/framework_new.png" alt="MY ALT TEXT"/>
-      <h2 class="subtitle">
-      Our proposed grasp retargeting framework comprises three main modules. First, the object segmented from the multi-frame MANO and object interaction sequence is scaled, and the human hand pose is retargeted to a robotic hand pose. Next, a double-threshold detection system extracts initial contact information between the retargeted hand and the object, which is then smoothed over adjacent frames and updated only if certain conditions are met. Finally, each finger is optimized in sequence, starting from the thumb and moving toward the pinky. At each stage of optimization, one finger is refined, and fingers without contact information, such as the index finger, are skipped, ensuring an efficient and accurate optimization procedure. 
-      </h2>
+<!-- Youtube video -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <!-- Paper video. -->
+      <h2 class="title is-3">Video Presentation</h2>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          
+          <div class="publication-video">
+            <!-- Youtube embed code here -->
+            <video poster="" id="video0" autoplay controls muted loop height="100%">
+              <!-- Your video file here -->
+              <source src="static/videos/pre.mp4"
+              type="video/mp4">
+            </video>
+            <!-- <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-<!-- End teaser video -->
+<!-- End youtube video -->
 
 <!-- Paper abstract -->
 <section class="section hero is-light">
@@ -153,6 +165,16 @@
 </section>
 <!-- End paper abstract -->
 
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/images/framework_new.png" alt="MY ALT TEXT"/>
+      <h2 class="subtitle">
+      Our proposed grasp retargeting framework comprises three main modules. First, the object segmented from the multi-frame MANO and object interaction sequence is scaled, and the human hand pose is retargeted to a robotic hand pose. Next, a double-threshold detection system extracts initial contact information between the retargeted hand and the object, which is then smoothed over adjacent frames and updated only if certain conditions are met. Finally, each finger is optimized in sequence, starting from the thumb and moving toward the pinky. At each stage of optimization, one finger is refined, and fingers without contact information, such as the index finger, are skipped, ensuring an efficient and accurate optimization procedure. 
+      </h2>
+    </div>
+  </div>
+</section>
 
 <!-- Image carousel -->
 <section class="hero is-small">
@@ -196,25 +218,7 @@
 
 
 
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- Youtube embed code here -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End youtube video -->
+
 
 
 <!-- Video carousel -->
