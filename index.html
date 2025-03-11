@@ -1,370 +1,743 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
-  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
-  <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="DESCRIPTION META TAG">
-  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
-  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
-  <meta property="og:url" content="URL OF THE WEBSITE"/>
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <meta property="og:image" content="static/image/your_banner_image.png" />
-  <meta property="og:image:width" content="1200"/>
-  <meta property="og:image:height" content="630"/>
+  <!-- Meta Information -->
+  <meta name="description" content="DexFlow: Unified Approach for Dexterous Hand Pose Retargeting and Interaction">
+  <meta property="og:title" content="DexFlow: Dexterous Hand-Object Interaction Framework" />
+  <meta property="og:description" content="High-precision hand pose retargeting with contact-aware optimization" />
+  <meta property="og:url" content="https://your-domain.com" />
+  <meta property="og:image" content="static/images/og_banner.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
-
-  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
-  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:title" content="DexFlow Research Project">
+  <meta name="twitter:description" content="Advanced hand-object interaction modeling framework">
+  <meta name="twitter:image" content="static/images/twitter_banner.png">
   <meta name="twitter:card" content="summary_large_image">
-  <!-- Keywords for your paper to be indexed by-->
-  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="keywords" content="dexterous manipulation, hand pose retargeting, contact optimization, robotics">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-  <title>Academic Project Page</title>
+  <title>DexFlow - Dexterous Manipulation Framework</title>
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-  rel="stylesheet">
 
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Roboto:400,700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
   <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <style>
+    :root {
+      --primary-color: #FF6B35;
+      --secondary-color: #004E89;
+      --background-light: #FFF8F0;
+      --text-dark: #2D3436;
+    }
 
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--background-light);
+    }
+
+    .accent-border {
+      border-top: 4px solid var(--primary-color);
+    }
+
+    .hero-section {
+      background: linear-gradient(135deg, #ffffff 0%, #fff3e9 100%);
+      padding: 4rem 1.5rem;
+    }
+
+    .publication-title {
+      font-family: 'Google Sans', sans-serif;
+      color: var(--text-dark);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .container{max-width:1260px}
+
+    .interactive-card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .interactive-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .model-viewer-container {
+      height: 500px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .control-button {
+      background: var(--primary-color);
+      color: white;
+      border-radius: 24px;
+      padding: 0.8rem 1.5rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .control-button1 {
+      background: var(--primary-color);
+      color: white;
+      border-radius: 24px;
+      padding: 0.8rem 1.5rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .control-button1.active {
+      background: var(--secondary-color);
+      box-shadow: 0 4px 12px rgba(0, 78, 137, 0.3);
+    }
+
+
+    .control-button.active {
+      background: var(--secondary-color);
+      box-shadow: 0 4px 12px rgba(0, 78, 137, 0.3);
+    }
+
+    .section-heading {
+      color: var(--text-dark);
+      font-weight: 700;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .section-heading:after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--primary-color);
+    }
+
+    model-viewer {
+      --progress-bar-color: var(--primary-color);
+      --poster-color: transparent;
+    }
+
+    .framework-image {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .video-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+
+    .video-player {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+    }
+
+    .video-caption {
+      padding: 1.5rem;
+      background: #f8f9fa;
+    }
+
+    .carousel-container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .model-viewer-container {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-top: 75%;
+      /* 4:3 宽高比 */
+      overflow: hidden;
+      border-radius: 12px;
+      background: #f8f9fa;
+    }
+
+    model-viewer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100% !important;
+      height: 100% !important;
+      min-height: 300px;
+      /* 移动端最小高度 */
+    }
+
+    /* 响应式调整 */
+    @media (max-width: 768px) {
+      .model-viewer-container {
+        padding-top: 100%;
+        /* 1:1 比例 */
+      }
+    }
+
+    /* 保持双列等高 */
+    .columns {
+      align-items: stretch;
+    }
+
+    .interactive-card {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* 优化视频轮播布局 */
+    .carousel {
+      scroll-snap-type: x mandatory;
+    }
+
+    .video-card {
+      scroll-snap-align: start;
+      flex: 0 0 calc(33.333% - 20px);
+    }
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 比例 */
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      background: #000;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .carousel-container {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .carousel {
+        display: flex;
+        overflow: hidden;
+        scroll-behavior: smooth;
+        gap: 20px;
+        padding: 10px 0;
+      }
+
+      .video-card {
+        flex: 0 0 calc(33.333% - 20px);
+        min-width: 300px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease;
+      }
+
+      .video-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .carousel-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .carousel-prev,
+      .carousel-next {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #ff9f1c;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .carousel-prev1,
+      .carousel-next1 {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #ff9f1c;
+        color: white;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .pagination-dots {
+        display: flex;
+        gap: 10px;
+      }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #ddd;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .dot.active {
+        background: #ff9f1c;
+        transform: scale(1.2);
+      }
+
+      @media (max-width: 1024px) {
+        .video-card {
+          flex: 0 0 calc(50% - 20px);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .video-card {
+          flex: 0 0 100%;
+        }
+      }
+      * 新增控制按钮样式 */
+/* 按钮容器样式 */
+
+    .model-controls {
+      position: relative;
+      height: fit-content;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+
+/* 响应式调整 */
+/* @media (max-width: 768px) {
+  .model-controls {
+    left: -1rem;
+    right: -1rem;
+  }
+  
+  .control-button {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .model-viewer-container {
+    height: 300px;
+  }
+} */
+  </style>
+
+  <!-- Scripts -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script src="static/js/bulma-carousel.min.js"></script>
-  <script src="static/js/bulma-slider.min.js"></script>
-  <script src="static/js/index.js"></script>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
+
 <body>
-
-
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Academic Project Page</h1>
-            <div class="is-size-5 publication-authors">
-              <!-- Paper authors -->
-              <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
-                  <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
-                  </span>
-                  </div>
-
-                  <div class="is-size-5 publication-authors">
-                    <span class="author-block">Institution Name<br>Conferance name and year</span>
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
-                  </div>
-
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- Arxiv PDF link -->
-                      <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
-
-                    <!-- Supplementary PDF link -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
-
-                  <!-- Github link -->
-                  <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-
-                <!-- ArXiv abstract Link -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
+  <!-- Hero Section -->
+  <section class="hero hero-section accent-border">
     <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
+      <div class="has-text-centered">
+        <h1 class="title is-1 publication-title">DexFlow</h1>
+        <h2 class="subtitle is-4">Unified Framework for Dexterous Manipulation</h2>
+
+        <!-- Author Information -->
+        <div class="author-block">
+          <div class="authors-list">
+            <span class="author">Xiaoyi Lin<sup>1</sup></span>,
+            <span class="author">Kunpeng Yao<sup>2</sup></span>,
+            <span class="author">Lixin Xu<sup>3</sup></span>,
+            <span class="author">Xueqiang Wang<sup>4</sup></span>,
+            <span class="author">Xuetao Li<sup>1</sup></span>,
+            <span class="author">Yuchen Wang<sup>1</sup></span>,
+            <span class="author">Miao Li<sup>4,†</sup></span>
+          </div>
           
-          <div class="publication-video">
-            <!-- Youtube embed code here -->
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/s-NKJb3qodo?si=m_JZNeP3sC8EnoBd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        
+          <div class="conference-info">
+            IEEE/RSJ IROS 2024
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End youtube video -->
 
-<!-- Paper abstract -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-          Despite advances in hand-object interaction modeling, generating realistic dexterous manipulation data for robotic hands remains a challenge. Retargeting methods often suffer from low accuracy and fail to account for hand-object interactions, leading to artifacts like interpenetration. Generative methods, lacking human hand priors, produce limited and unnatural poses. We propose a data transformation pipeline that combines human hand and object data from multiple sources for high-precision retargeting. Our approach uses a differential loss constraint to ensure temporal consistency and generates contact maps to refine hand-object interactions. Experiments show our method significantly improves pose accuracy, naturalness, and diversity, providing a robust solution for hand-object interaction modeling.
-          </p>
+        <!-- Action Buttons -->
+        <div class="buttons is-centered mt-4">
+          <a href="#" class="button is-primary is-medium">
+            <span class="icon"><i class="fas fa-file-pdf"></i></span>
+            <span>Paper</span>
+          </a>
+          <a href="#" class="button is-dark is-medium">
+            <span class="icon"><i class="fab fa-github"></i></span>
+            <span>Code(coming soon)</span>
+          </a>
+          <a href="#" class="button is-info is-medium">
+            <span class="icon"><i class="ai ai-arxiv"></i></span>
+            <span>arXiv</span>
+          </a>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End paper abstract -->
-
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <img src="static/images/framework_new.png" alt="MY ALT TEXT"/>
-      <h2 class="subtitle">
-      Our proposed grasp retargeting framework comprises three main modules. First, the object segmented from the multi-frame MANO and object interaction sequence is scaled, and the human hand pose is retargeted to a robotic hand pose. Next, a double-threshold detection system extracts initial contact information between the retargeted hand and the object, which is then smoothed over adjacent frames and updated only if certain conditions are met. Finally, each finger is optimized in sequence, starting from the thumb and moving toward the pinky. At each stage of optimization, one finger is refined, and fingers without contact information, such as the index finger, are skipped, ensuring an efficient and accurate optimization procedure. 
-      </h2>
-    </div>
-  </div>
-</section>
-
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
-
-
-
-
-
-
-
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video0">
-          <video poster="" id="video0" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/video0.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/video1.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/video2.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/video3.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video4">
-          <video poster="" id="video4" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/video4.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video5">
-          <video poster="" id="video5" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/video5.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video6">
-          <video poster="" id="video6" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/video6.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video7">
-          <video poster="" id="video7" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/video7.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video8">
-          <video poster="" id="video8" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/video8.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video9">
-          <video poster="" id="video9" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/video9.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video10">
-          <video poster="" id="video10" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/video10.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video11">
-          <video poster="" id="video11" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/video11.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
-
-
-
-
-
-
-<!-- Paper poster -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
       </div>
     </div>
   </section>
-<!--End paper poster -->
 
-
-<!--BibTex citation -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>BibTex Code Here</code></pre>
+  <!-- Video Section -->
+<!-- Video Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 section-heading">Technical Overview</h2>
+    <div class="video-container">
+      <iframe 
+        src="https://www.youtube.com/embed/s-NKJb3qodo" 
+        title="DexFlow Demo" 
+        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
     </div>
+  </div>
 </section>
-<!--End BibTex citation -->
+  <!-- Abstract Section -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 section-heading">Abstract</h2>
+      <div class="content-box interactive-card p-5">
+        <p class="has-text-justified">
+          We present DexFlow, a novel framework for dexterous hand pose retargeting and object interaction modeling.
+          Our method combines multi-source human demonstration data with physics-based optimization to generate
+          natural robotic manipulation sequences. The key innovation lies in our contact-aware refinement system
+          that preserves interaction fidelity while ensuring temporal coherence across frames.
+        </p>
+      </div>
+    </div>
+  </section>
 
-
-  <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <h2 class="title is-3 has-text-centered">Pipeline Overview</h2>
+        <figure class="image is-16by9 framework-image">
+          <img src="static/images/framework_new.png" alt="DexFlow Framework Architecture" class="has-ratio">
+        </figure>
+        <div class="content mt-4">
+          <div class="content-box interactive-card p-5">
+            <p class="has-text-justified">
+              Our proposed grasp retargeting framework comprises three main modules. First, the object segmented from the multi-frame MANO and object interaction sequence is scaled, and the human hand pose is retargeted to a robotic hand pose. Next, a double-threshold detection system extracts initial contact information between the retargeted hand and the object, which is then smoothed over adjacent frames and updated only if certain conditions are met. Finally, each finger is optimized in sequence, starting from the thumb and moving toward the pinky. At each stage of optimization, one finger is refined, and fingers without contact information, such as the index finger, are skipped, ensuring an efficient and accurate optimization procedure.  
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
+  </section>
 
-<!-- Statcounter tracking code -->
+
+  <!-- Interactive Demo Section -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3  has-text-centered  section-heading">Interactive Demonstration</h2>
+
+      
+      <div class="columns">
+
   
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+        <!-- 人类演示模型 -->
+        <div class="column">
+          <div class="interactive-card">
+            <div class="model-viewer-container">
+              <model-viewer id="hand-model" src="static/models/mano_and_object_batch0_frame0.glb" camera-controls
+                auto-rotate shadow-intensity="1.2" ar ar-modes="scene-viewer quick-look">
+                <button class="control-button" slot="ar-button">
+                  AR Mode
+                </button>
+              </model-viewer>
+            </div>
+            <div class="p-4">
+              <h3 class="title is-5 mb-2">Human Demonstration</h3>
+              <p class="has-text-grey">Retargeted from MoCap data</p>
+            </div>
+          </div>
+        </div>
 
-    <!-- End of Statcounter Code -->
+        <!-- 机器人执行模型 -->
+        <div class="column">
+          <div class="interactive-card">
+            <div class="model-viewer-container">
+              <model-viewer id="robot-model" src="static/models/robot_and_object_batch0_frame0.glb" camera-controls
+                auto-rotate shadow-intensity="1.2" ar ar-modes="scene-viewer quick-look">
+                <button class="control-button" slot="ar-button">
+                  AR Mode
+                </button>
+              </model-viewer>
+            </div>
+            <div class="p-4">
+              <h3 class="title is-5 mb-2">Robotic Execution</h3>
+              <p class="has-text-grey">Optimized contact points</p>
+            </div>
+          </div>
+        </div>
 
-  </body>
-  </html>
+      </div>
+      <div class="carousel-nav">
+        <button id="prev-btn"  class="carousel-prev1">
+          <span class="icon"><i class="fas fa-chevron-left"></i></span>
+        </button>
+        <button  id="next-btn" class="carousel-next1">
+          <span class="icon"><i class="fas fa-chevron-right"></i></span>
+        </button>
+      </div>
+
+
+    </div>
+  </section>
+  <script>
+    // 必须先定义配置数据
+    const demoConfig = [
+      {
+        human: 'static/models/mano_and_object_batch0_frame0.glb',
+        robot: 'static/models/robot_and_object_batch0_frame0.glb',
+        desc: 'Precision grasping sequence'
+      },
+      {
+        human: 'static/models/mano_and_object_batch1_frame0.glb',
+        robot: 'static/models/robot_and_object_batch1_frame0.glb',
+        desc: 'Object rotation sequence'
+      },
+      {
+        human: 'static/models/mano_and_object_batch2_frame0.glb',
+        robot: 'static/models/robot_and_object_batch2_frame0.glb',
+        desc: 'Tool manipulation sequence'
+      }
+    ];
+    
+    // DOM加载完成后初始化
+    document.addEventListener('DOMContentLoaded', () => {
+      let currentIndex = 0;
+      const totalDemos = demoConfig.length;
+    
+      // 获取按钮元素
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+    
+      // 更新视图的函数
+      function updateDemo() {
+        // 更新模型
+        document.getElementById('hand-model').src = demoConfig[currentIndex].human;
+        document.getElementById('robot-model').src = demoConfig[currentIndex].robot;
+        
+        // 更新描述
+        document.querySelectorAll('.has-text-grey').forEach(el => {
+          if(el.innerText.includes('Sequence')) {
+            el.innerText = demoConfig[currentIndex].desc;
+          }
+        });
+        
+        // 更新按钮状态
+        prevBtn.disabled = currentIndex === 0;
+        nextBtn.disabled = currentIndex === totalDemos - 1;
+      }
+    
+      // 绑定事件
+      prevBtn.addEventListener('click', () => {
+        if(currentIndex > 0) {
+          currentIndex--;
+          updateDemo();
+        }
+      });
+    
+      nextBtn.addEventListener('click', () => {
+        if(currentIndex < totalDemos - 1) {
+          currentIndex++;
+          updateDemo();
+        }
+      });
+    
+      // 初始加载
+      updateDemo();
+    });
+    </script>
+  <section class="section is-medium">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered mb-6">Result Demonstrations</h2>
+      <div class="carousel-container">
+        <div id="results-carousel" class="carousel">
+          <!-- 视频项通过JavaScript动态生成 -->
+        </div>
+        <!-- 导航控件 -->
+        <div class="carousel-nav">
+          <button class="carousel-prev">
+            <span class="icon"><i class="fas fa-chevron-left"></i></span>
+          </button>
+          <div class="pagination-dots"></div>
+          <button class="carousel-next">
+            <span class="icon"><i class="fas fa-chevron-right"></i></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <script>
+    // 视频轮播控制器
+    class VideoCarousel {
+      constructor() {
+        this.carousel = document.getElementById('results-carousel');
+        this.currentPage = 0;
+        this.itemsPerPage = 3;
+        this.cardWidth = 0;
+        this.totalItems = 18;
+        this.init();
+      }
+  
+      init() {
+        this.generateVideoCards();
+        // 延迟执行确保卡片渲染完成
+        setTimeout(() => {
+          this.setupEventListeners();
+          this.calculateDimensions();
+          this.updatePagination();
+          this.updateCarousel();
+        }, 50);
+      }
+  
+      generateVideoCards() {
+        for (let i = 0; i < this.totalItems; i++) {
+          const card = document.createElement('div');
+          card.className = 'video-card';
+          card.innerHTML = `
+            <video class="video-player" autoplay muted loop controls>
+              <source src="static/videos/video${i}.mp4" type="video/mp4">
+            </video>
+            <div class="video-caption">
+              <p class="has-text-weight-semibold">Demo ${i + 1}</p>
+              <p class="is-size-7">${this.getVideoDescription(i)}</p>
+            </div>
+          `;
+          this.carousel.appendChild(card);
+        }
+      }
+  
+      calculateDimensions() {
+        if (this.carousel.children.length > 0) {
+          const firstCard = this.carousel.children[0];
+          const style = window.getComputedStyle(firstCard);
+          this.cardWidth = firstCard.offsetWidth + 
+                         parseFloat(style.marginLeft) + 
+                         parseFloat(style.marginRight);
+          
+          // 响应式调整每页显示数量
+          const viewportWidth = window.innerWidth;
+          this.itemsPerPage = viewportWidth < 768 ? 1 : 
+                            viewportWidth < 1024 ? 2 : 3;
+        }
+      }
+  
+      updateCarousel() {
+        const maxScroll = this.carousel.scrollWidth - this.carousel.clientWidth;
+        const scrollAmount = Math.min(
+          this.cardWidth * this.itemsPerPage * this.currentPage,
+          maxScroll
+        );
+        this.carousel.scrollTo({
+          left: scrollAmount,
+          behavior: 'smooth'
+        });
+        this.updatePagination();
+      }
+  
+      updatePagination() {
+        const pageCount = Math.ceil(this.totalItems / this.itemsPerPage);
+        const dotsContainer = document.querySelector('.pagination-dots');
+        dotsContainer.innerHTML = Array.from({length: pageCount}, (_, i) => 
+          `<div class="dot ${i === this.currentPage ? 'active' : ''}" data-page="${i}"></div>`
+        ).join('');
+      }
+  
+      setupEventListeners() {
+        // 分页按钮事件
+        document.querySelector('.carousel-prev').addEventListener('click', () => {
+          this.currentPage = Math.max(0, this.currentPage - 1);
+          this.updateCarousel();
+        });
+  
+        document.querySelector('.carousel-next').addEventListener('click', () => {
+          const maxPage = Math.ceil(this.totalItems / this.itemsPerPage) - 1;
+          this.currentPage = Math.min(maxPage, this.currentPage + 1);
+          this.updateCarousel();
+        });
+  
+        // 分页指示器点击事件
+        document.querySelector('.pagination-dots').addEventListener('click', (e) => {
+          if (e.target.classList.contains('dot')) {
+            this.currentPage = parseInt(e.target.dataset.page);
+            this.updateCarousel();
+          }
+        });
+  
+        // 窗口尺寸变化监听
+        window.addEventListener('resize', () => {
+          this.calculateDimensions();
+          this.currentPage = Math.min(
+            this.currentPage,
+            Math.ceil(this.totalItems / this.itemsPerPage) - 1
+          );
+          this.updatePagination();
+          this.updateCarousel();
+        });
+  
+        // 拖拽滚动支持
+        let isDragging = false;
+        let startX = 0;
+        let scrollLeft = 0;
+  
+        this.carousel.addEventListener('mousedown', (e) => {
+          isDragging = true;
+          startX = e.pageX - this.carousel.offsetLeft;
+          scrollLeft = this.carousel.scrollLeft;
+          this.carousel.style.cursor = 'grabbing';
+        });
+  
+        const endDrag = () => {
+          isDragging = false;
+          this.carousel.style.cursor = 'grab';
+          const pageWidth = this.cardWidth * this.itemsPerPage;
+          this.currentPage = Math.round(this.carousel.scrollLeft / pageWidth);
+          this.updateCarousel();
+        };
+  
+        this.carousel.addEventListener('mouseup', endDrag);
+        this.carousel.addEventListener('mouseleave', endDrag);
+  
+        this.carousel.addEventListener('mousemove', (e) => {
+          if (!isDragging) return;
+          e.preventDefault();
+          const x = e.pageX - this.carousel.offsetLeft;
+          const walk = (x - startX) * 2;
+          this.carousel.scrollLeft = scrollLeft - walk;
+        });
+      }
+  
+      getVideoDescription(index) {
+        const actions = ['Precision Grasping', 'Object Rotation', 'Tool Manipulation'];
+        return `${actions[index % 3]} Sequence #${Math.floor(index / 3) + 1}`;
+      }
+    }
+  
+    // 初始化视频轮播
+    document.addEventListener('DOMContentLoaded', () => {
+      new VideoCarousel();
+    });
+</script>
+</body>
+
+</html>
